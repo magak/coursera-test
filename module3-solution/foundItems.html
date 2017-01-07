@@ -1,0 +1,9 @@
+<div>
+    <ol>
+        <li ng-repeat="item in foundItems.items">
+            {{ item.quantity }} of {{ item.name }}
+            <button ng-click="foundItems.onRemove({index: $index});">Remove Item</button>
+        </li>
+    </ol>
+</div>
+<div class="error" ng-if="foundItems.isEmpty()">Nothing found</div>
