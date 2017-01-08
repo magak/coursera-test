@@ -14,14 +14,23 @@
     <div class="container" ng-controller="NarrowItDownController as nrwCtrl">
         <h1>Narrow Down Your Chinese Menu Choice</h1>
 
-        <div class="form-group">
-            <input type="text" ng-model="nrwCtrl.searchTerm" placeholder="search term" class="form-control">
+        <div class="row">
+            <div>
+                <div class="form-group">
+                    <input type="text" ng-model="nrwCtrl.searchTerm" placeholder="search term" class="form-control">
+                </div>
+                <div class="form-group narrow-button">
+                    <button class="btn btn-primary" ng-click="nrwCtrl.getMatchedMenuItems();">
+                        <span class="glyphicon glyphicon-search"></span>
+                        Narrow It Down For Me!</button>
+                </div>
+            </div>
         </div>
-        <div class="form-group narrow-button">
-            <button class="btn btn-primary" ng-click="nrwCtrl.getMatchedMenuItems();">Narrow It Down For Me!</button>
+        <div class="row">
+            <items-loader-indicator loading="nrwCtrl.loading">
+                <found-items items="nrwCtrl.found" on-remove="nrwCtrl.removeItem(index)"></found-items>
+            </items-loader-indicator>
         </div>
-
-        <found-items items="nrwCtrl.found" on-remove="nrwCtrl.removeItem(index)"></found-items>
     </div>
 
 </body>

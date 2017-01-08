@@ -1,9 +1,13 @@
 <div>
-    <ol>
-        <li ng-repeat="item in foundItems.items">
-            {{ item.quantity }} of {{ item.name }}
-            <button ng-click="foundItems.onRemove({index: $index});">Remove Item</button>
-        </li>
-    </ol>
+    <div class="row row-margin foundItems" ng-repeat="item in foundItems.items">
+        <div class="col-md-2">
+            <button class="btn btn-primary btn-sm btn-block" ng-click="foundItems.onRemove({index: $index});">
+              <span class="glyphicon glyphicon-remove"></span>
+              Remove Item
+            </button>
+        </div>
+        <div class="col-md-3">{{item.short_name}}:{{item.name}}</div>
+        <div class="col-md-7"><small>{{item.description}}</small></div>
+    </div>
+    <div class="error" ng-if="foundItems.isEmpty()">Nothing found</div>
 </div>
-<div class="error" ng-if="foundItems.isEmpty()">Nothing found</div>
