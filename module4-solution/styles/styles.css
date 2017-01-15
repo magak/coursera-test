@@ -72,3 +72,7 @@ input[type="text"] {
 .foundItems:hover {
     background-color: lightsteelblue;
 }
+
+.selectedCategory {
+    font-weight: bold;
+}
